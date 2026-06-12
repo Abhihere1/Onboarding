@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+:root {
+  --patch-red: #DC2626;
+  --patch-red-hover: #B91C1C;
+  --patch-bg: #F9FAFB;
+  --patch-white: #FFFFFF;
+  --patch-border: #E5E7EB;
+  --patch-text: #111827;
+  --patch-muted: #6B7280;
+  --patch-red-light: #FEF2F2;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Inter', 'DM Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--patch-bg);
+  color: var(--patch-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--patch-border);
+  border-radius: 3px;
+}
+
+/* Animations */
+@keyframes pulse-dots {
+  0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
+  40% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
+
+.typing-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--patch-muted);
+  animation: pulse-dots 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(1) { animation-delay: 0s; }
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* Markdown content */
+.markdown-content h1 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; }
+.markdown-content h2 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+.markdown-content h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+.markdown-content p { margin-bottom: 0.75rem; line-height: 1.6; }
+.markdown-content p:last-child { margin-bottom: 0; }
+.markdown-content ul { list-style: disc; padding-left: 1.25rem; margin-bottom: 0.75rem; }
+.markdown-content ol { list-style: decimal; padding-left: 1.25rem; margin-bottom: 0.75rem; }
+.markdown-content li { margin-bottom: 0.25rem; line-height: 1.6; }
+.markdown-content strong { font-weight: 700; }
+.markdown-content em { font-style: italic; }
+.markdown-content code { background: #F3F4F6; padding: 0.1rem 0.3rem; border-radius: 4px; font-size: 0.875rem; }
+.markdown-content pre { background: #F3F4F6; padding: 0.75rem; border-radius: 8px; margin-bottom: 0.75rem; overflow-x: auto; }
+.markdown-content a { color: var(--patch-red); text-decoration: underline; }
+.markdown-content img { border-radius: 8px; max-width: 100%; margin: 0.75rem 0; display: block; }
